@@ -1,4 +1,4 @@
-# 📝 Todo CLI en Python
+# 📝 To-do CLI en Python
 
 Aplicación de línea de comandos para gestionar tareas.
 
