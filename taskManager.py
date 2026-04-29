@@ -51,6 +51,7 @@ def editarTareas(tasks):
     nuevoTexto = input("Cual sera la nueva tarea: ")
     if confirmar == "s":
         tasks[cambio - 1]["tarea"] = nuevoTexto
+        print("Se edito correctamente...")
     elif confirmar == "n":
         return
     else: 
@@ -75,6 +76,7 @@ while True:
         elif opcion == 5:
             editarTareas(tasks)
         elif opcion == 6:
+            print("Hasta luego Askepios....")
             break
     except ValueError:
         print("Debe escribir un numero...")
