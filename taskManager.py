@@ -12,7 +12,7 @@ def guardarTareas(tasks):
         json.dump(tasks, f)
 
 def mostrarMenu():
-    print("--------------------------\n1.Agregar Tarea\n2.Ver Tareas\n3.Eliminar Tarea\n4.Completar Tareas\n5.Salir\n--------------------------")
+    print("--------------------------\n1.Agregar Tarea\n2.Ver Tareas\n3.Eliminar Tarea\n4.Completar Tareas\n5.Editar Tarea\n6.Salir\n--------------------------")
 
 def agregarTarea(tasks):
     nueva = (input("Describa la nueva tarea: "))
@@ -44,6 +44,19 @@ def borrarTareas(tasks):
         print("Responda con S o N ")
     guardarTareas(tasks)
 
+def editarTareas(tasks):
+    listarTareas(tasks)
+    cambio = int(input("Que tarea desea editar: "))
+    confirmar = input("Seguro que desea editar la tarea S/N: ").lower()
+    nuevoTexto = input("Cual sera la nueva tarea: ")
+    if confirmar == "s":
+        tasks[cambio - 1]["tarea"] = nuevoTexto
+    elif confirmar == "n":
+        return
+    else: 
+        print("Responda con S o N...")
+    guardarTareas(tasks)
+
 tasks = cargarTareas()
 
 while True:
@@ -60,6 +73,8 @@ while True:
         elif opcion == 4:
             completarTareas(tasks)
         elif opcion == 5:
+            editarTareas(tasks)
+        elif opcion == 6:
             break
     except ValueError:
         print("Debe escribir un numero...")

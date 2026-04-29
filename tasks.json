@@ -1,1 +1,1 @@
-[{"tarea": "Programar", "completada": true}, {"tarea": "Leer", "completada": false}, {"tarea": "Estudiar", "completada": true}]
+[{"tarea": "Programar", "completada": true}, {"tarea": "Estudiar", "completada": true, "tareas": "Subir a github"}, {"tarea": "leer", "completada": false}]
