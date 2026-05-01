@@ -29,15 +29,18 @@ def completarTareas(tasks):
 def listarTareas(tasks):
     print("Sus tareas pendientes: ")
     for index, l in enumerate(tasks, start = 1):
-        print(index, l["tarea"], ":3" if l["completada"] else "x")
+        print(index, l["tarea"], "[✔]" if l["completada"] else "[]")
 
 def borrarTareas(tasks):
     listarTareas(tasks)
     pregunta = int(input("Que tarea desea borrar: "))
     confirmacion = input("Seguro que desea borrar la tarea seleccionada S/N: " ).lower()
     if confirmacion == "s":
-        tasks.pop(pregunta - 1)
-        print("Tarea eliminada...")
+        try:
+            tasks.pop(pregunta - 1)
+            print("Tarea eliminada...")
+        except ValueError:
+            print("Debe indicar un indice...")
     elif confirmacion == "n":
         return
     else:
@@ -50,8 +53,11 @@ def editarTareas(tasks):
     confirmar = input("Seguro que desea editar la tarea S/N: ").lower()
     nuevoTexto = input("Cual sera la nueva tarea: ")
     if confirmar == "s":
-        tasks[cambio - 1]["tarea"] = nuevoTexto
-        print("Se edito correctamente...")
+        try:
+            tasks[cambio - 1]["tarea"] = nuevoTexto
+            print("Se edito correctamente...")
+        except ValueError:
+            print("Debe indicar un indice... ")
     elif confirmar == "n":
         return
     else: 
